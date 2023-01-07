@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Dec 24, 2021 at 09:32 AM
--- Server version: 10.4.20-MariaDB
--- PHP Version: 8.0.9
+-- Waktu pembuatan: 07 Jan 2023 pada 17.03
+-- Versi server: 10.4.22-MariaDB
+-- Versi PHP: 7.4.27
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -24,7 +24,7 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Table structure for table `data_jabatan`
+-- Struktur dari tabel `data_jabatan`
 --
 
 CREATE TABLE `data_jabatan` (
@@ -36,7 +36,7 @@ CREATE TABLE `data_jabatan` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data for table `data_jabatan`
+-- Dumping data untuk tabel `data_jabatan`
 --
 
 INSERT INTO `data_jabatan` (`id_jabatan`, `nama_jabatan`, `gaji_pokok`, `tj_transport`, `uang_makan`) VALUES
@@ -48,7 +48,7 @@ INSERT INTO `data_jabatan` (`id_jabatan`, `nama_jabatan`, `gaji_pokok`, `tj_tran
 -- --------------------------------------------------------
 
 --
--- Table structure for table `data_kehadiran`
+-- Struktur dari tabel `data_kehadiran`
 --
 
 CREATE TABLE `data_kehadiran` (
@@ -64,21 +64,23 @@ CREATE TABLE `data_kehadiran` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data for table `data_kehadiran`
+-- Dumping data untuk tabel `data_kehadiran`
 --
 
 INSERT INTO `data_kehadiran` (`id_kehadiran`, `bulan`, `nik`, `nama_pegawai`, `jenis_kelamin`, `nama_jabatan`, `hadir`, `sakit`, `alpha`) VALUES
-(1, '012021', '0987654321', 'fadlih', 'Laki-Laki', 'Staff Marketing', 24, 0, 0),
-(2, '012021', '123456789', 'Fauzi', 'Laki-Laki', 'Admin', 22, 0, 1),
-(3, '122021', '0987654321', 'fadlih', 'Laki-Laki', 'Staff Marketing', 3, 1, 0),
-(4, '122021', '123456789', 'Fauzi', 'Laki-Laki', 'Admin', 4, 0, 0),
-(5, '022021', '0987654321', 'Fadlih', 'Laki-Laki', 'Staff Marketing', 22, 1, 0),
-(6, '022021', '123456789', 'Fauzi', 'Laki-Laki', 'Admin', 23, 0, 0);
+(26, '122022', '1212131090909090', 'dimas', 'Laki-Laki', 'Admin', 27, 3, 0),
+(27, '122022', '3311199000000006', 'Diyana', 'Perempuan', 'HRD', 30, 0, 0),
+(28, '122022', '1212121213900000', 'putri', 'Perempuan', 'Admin', 20, 5, 5),
+(29, '122022', '123456789', 'Shaffa Wahyu Fadholi', 'Laki-Laki', 'Admin', 25, 5, 0),
+(34, '012023', '1212131090909090', 'dimas', 'Laki-Laki', 'Admin', 30, 0, 0),
+(35, '012023', '3311199000000006', 'Diyana', 'Perempuan', 'HRD', 30, 0, 0),
+(36, '012023', '1212121213900000', 'putri', 'Perempuan', 'Admin', 30, 0, 0),
+(37, '012023', '123456789', 'Shaffa Wahyu Fadholi', 'Laki-Laki', 'Admin', 30, 0, 0);
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `data_pegawai`
+-- Struktur dari tabel `data_pegawai`
 --
 
 CREATE TABLE `data_pegawai` (
@@ -96,17 +98,19 @@ CREATE TABLE `data_pegawai` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data for table `data_pegawai`
+-- Dumping data untuk tabel `data_pegawai`
 --
 
 INSERT INTO `data_pegawai` (`id_pegawai`, `nik`, `nama_pegawai`, `username`, `password`, `jenis_kelamin`, `jabatan`, `tanggal_masuk`, `status`, `photo`, `hak_akses`) VALUES
-(1, '123456789', 'Fauzi', 'fauzi', '0bd9897bf12294ce35fdc0e21065c8a7', 'Laki-Laki', 'Admin', '2020-12-26', 'Karyawan Tetap', 'pegawai-210101-a7ca89f5fc.png', 1),
-(2, '0987654321', 'Fadlih', 'Fadlih', 'ab8cd67b7b917cdab042fff172a51f17', 'Laki-Laki', 'Staff Marketing', '2021-01-02', 'Karyawan Tidak Tetap', 'pegawai-210101-9847084dc8.png', 2);
+(1, '123456789', 'Shaffa Wahyu Fadholi', 'Shaffa', '86bfe804f2a91ddef0189a4f781b03f0', 'Laki-Laki', 'Admin', '2020-12-26', 'Karyawan Tetap', 'pegawai-210101-a7ca89f5fc.png', 1),
+(5, '3311199000000006', 'Diyana', 'Shaffa', '86bfe804f2a91ddef0189a4f781b03f0', 'Perempuan', 'HRD', '2022-11-16', 'Karyawan Tetap', '', 2),
+(6, '1212121213900000', 'putri', 'putri', '4093fed663717c843bea100d17fb67c8', 'Perempuan', 'Admin', '2022-11-10', 'Karyawan Tetap', '', 1),
+(7, '1212131090909090', 'dimas', 'dimas', '7d49e40f4b3d8f68c19406a58303f826', 'Laki-Laki', 'Admin', '2022-12-22', 'Karyawan Tetap', '', 2);
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `hak_akses`
+-- Struktur dari tabel `hak_akses`
 --
 
 CREATE TABLE `hak_akses` (
@@ -116,7 +120,7 @@ CREATE TABLE `hak_akses` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data for table `hak_akses`
+-- Dumping data untuk tabel `hak_akses`
 --
 
 INSERT INTO `hak_akses` (`id`, `keterangan`, `hak_akses`) VALUES
@@ -126,7 +130,7 @@ INSERT INTO `hak_akses` (`id`, `keterangan`, `hak_akses`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `potongan_gaji`
+-- Struktur dari tabel `potongan_gaji`
 --
 
 CREATE TABLE `potongan_gaji` (
@@ -136,80 +140,83 @@ CREATE TABLE `potongan_gaji` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data for table `potongan_gaji`
+-- Dumping data untuk tabel `potongan_gaji`
 --
 
 INSERT INTO `potongan_gaji` (`id`, `potongan`, `jml_potongan`) VALUES
 (1, 'Alpha', 100000),
-(2, 'Sakit', 0);
+(2, 'Sakit', 50000),
+(3, '2500000', 2000000),
+(4, '200000', 200000),
+(5, '200000', 200000);
 
 --
 -- Indexes for dumped tables
 --
 
 --
--- Indexes for table `data_jabatan`
+-- Indeks untuk tabel `data_jabatan`
 --
 ALTER TABLE `data_jabatan`
   ADD PRIMARY KEY (`id_jabatan`);
 
 --
--- Indexes for table `data_kehadiran`
+-- Indeks untuk tabel `data_kehadiran`
 --
 ALTER TABLE `data_kehadiran`
   ADD PRIMARY KEY (`id_kehadiran`);
 
 --
--- Indexes for table `data_pegawai`
+-- Indeks untuk tabel `data_pegawai`
 --
 ALTER TABLE `data_pegawai`
   ADD PRIMARY KEY (`id_pegawai`);
 
 --
--- Indexes for table `hak_akses`
+-- Indeks untuk tabel `hak_akses`
 --
 ALTER TABLE `hak_akses`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `potongan_gaji`
+-- Indeks untuk tabel `potongan_gaji`
 --
 ALTER TABLE `potongan_gaji`
   ADD PRIMARY KEY (`id`);
 
 --
--- AUTO_INCREMENT for dumped tables
+-- AUTO_INCREMENT untuk tabel yang dibuang
 --
 
 --
--- AUTO_INCREMENT for table `data_jabatan`
+-- AUTO_INCREMENT untuk tabel `data_jabatan`
 --
 ALTER TABLE `data_jabatan`
   MODIFY `id_jabatan` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
--- AUTO_INCREMENT for table `data_kehadiran`
+-- AUTO_INCREMENT untuk tabel `data_kehadiran`
 --
 ALTER TABLE `data_kehadiran`
-  MODIFY `id_kehadiran` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id_kehadiran` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=38;
 
 --
--- AUTO_INCREMENT for table `data_pegawai`
+-- AUTO_INCREMENT untuk tabel `data_pegawai`
 --
 ALTER TABLE `data_pegawai`
-  MODIFY `id_pegawai` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id_pegawai` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
--- AUTO_INCREMENT for table `hak_akses`
+-- AUTO_INCREMENT untuk tabel `hak_akses`
 --
 ALTER TABLE `hak_akses`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
--- AUTO_INCREMENT for table `potongan_gaji`
+-- AUTO_INCREMENT untuk tabel `potongan_gaji`
 --
 ALTER TABLE `potongan_gaji`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
