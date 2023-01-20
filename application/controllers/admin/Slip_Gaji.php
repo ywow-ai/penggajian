@@ -43,4 +43,3 @@ class Slip_Gaji extends CI_Controller {
 	$this->load->view('admin/gaji/cetak_slip_gaji', $data);
 	}
 }
-?>
