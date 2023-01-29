@@ -49,7 +49,7 @@ class Mail extends CI_Controller
             $this->email->from('yaqincoreid@gmail.com', 'Cah Nom');
             $this->email->to('masyaqin37@gmail.com');
             $this->email->subject('coba');
-            $this->email->message('ini adalah pesan');
+            $this->email->message('<h1 style="color:blue;text-align:center;">ini adalah pesan</h1>');
 
             $this->email->send();
         } catch (Exception $e) {
