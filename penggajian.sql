@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Waktu pembuatan: 07 Jan 2023 pada 17.03
+-- Waktu pembuatan: 31 Jan 2023 pada 22.25
 -- Versi server: 10.4.22-MariaDB
 -- Versi PHP: 7.4.27
 
@@ -89,6 +89,7 @@ CREATE TABLE `data_pegawai` (
   `nama_pegawai` varchar(100) NOT NULL,
   `username` varchar(120) NOT NULL,
   `password` varchar(32) NOT NULL,
+  `email` varchar(255) NOT NULL,
   `jenis_kelamin` varchar(15) NOT NULL,
   `jabatan` varchar(50) NOT NULL,
   `tanggal_masuk` date NOT NULL,
@@ -101,11 +102,12 @@ CREATE TABLE `data_pegawai` (
 -- Dumping data untuk tabel `data_pegawai`
 --
 
-INSERT INTO `data_pegawai` (`id_pegawai`, `nik`, `nama_pegawai`, `username`, `password`, `jenis_kelamin`, `jabatan`, `tanggal_masuk`, `status`, `photo`, `hak_akses`) VALUES
-(1, '123456789', 'Shaffa Wahyu Fadholi', 'Shaffa', '86bfe804f2a91ddef0189a4f781b03f0', 'Laki-Laki', 'Admin', '2020-12-26', 'Karyawan Tetap', 'pegawai-210101-a7ca89f5fc.png', 1),
-(5, '3311199000000006', 'Diyana', 'Shaffa', '86bfe804f2a91ddef0189a4f781b03f0', 'Perempuan', 'HRD', '2022-11-16', 'Karyawan Tetap', '', 2),
-(6, '1212121213900000', 'putri', 'putri', '4093fed663717c843bea100d17fb67c8', 'Perempuan', 'Admin', '2022-11-10', 'Karyawan Tetap', '', 1),
-(7, '1212131090909090', 'dimas', 'dimas', '7d49e40f4b3d8f68c19406a58303f826', 'Laki-Laki', 'Admin', '2022-12-22', 'Karyawan Tetap', '', 2);
+INSERT INTO `data_pegawai` (`id_pegawai`, `nik`, `nama_pegawai`, `username`, `password`, `email`, `jenis_kelamin`, `jabatan`, `tanggal_masuk`, `status`, `photo`, `hak_akses`) VALUES
+(1, '123456789', 'Shaffa Wahyu Fadholi', 'Shaffa', '86bfe804f2a91ddef0189a4f781b03f0', 'masyaqin37@gmail.com', 'Laki-Laki', 'Admin', '2020-12-26', 'Karyawan Tetap', 'pegawai-210101-a7ca89f5fc.png', 1),
+(5, '3311199000000006', 'Diyana', 'Shaffa', '86bfe804f2a91ddef0189a4f781b03f0', 'masyaqin37@gmail.com', 'Perempuan', 'HRD', '2022-11-16', 'Karyawan Tetap', '', 2),
+(6, '1212121213900000', 'putri', 'putri', '4093fed663717c843bea100d17fb67c8', 'masyaqin37@gmail.com', 'Perempuan', 'Admin', '2022-11-10', 'Karyawan Tetap', '', 1),
+(7, '1212131090909090', 'dimas', 'dimas', '7d49e40f4b3d8f68c19406a58303f826', 'masyaqin37@gmail.com', 'Laki-Laki', 'Admin', '2022-12-22', 'Karyawan Tetap', '', 2),
+(8, '12345678', 'Kyai Ahmad Bakhruddin', 'ahmad.pptf', 'e86f19dce04e5a963b3302c7916df762', 'masyaqin37@gmail.co', 'Laki-Laki', 'Admin', '1985-04-03', 'Karyawan Tetap', '', 1);
 
 -- --------------------------------------------------------
 
@@ -204,7 +206,7 @@ ALTER TABLE `data_kehadiran`
 -- AUTO_INCREMENT untuk tabel `data_pegawai`
 --
 ALTER TABLE `data_pegawai`
-  MODIFY `id_pegawai` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `id_pegawai` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- AUTO_INCREMENT untuk tabel `hak_akses`
