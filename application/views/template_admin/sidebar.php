@@ -72,6 +72,12 @@
           <span>Ubah Password</span></a>
       </li>
 
+      <li class="nav-item">
+        <a class="nav-link" href="<?php echo base_url('admin/zakat') ?>">
+          <i class="fa fa-bookmark"></i>
+          <span>Zakat</span></a>
+      </li>
+
       <!-- Nav Item - Dashboard -->
       <li class="nav-item">
         <a class="nav-link" href="<?php echo base_url('admin/about') ?>">

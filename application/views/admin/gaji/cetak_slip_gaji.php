@@ -23,9 +23,20 @@
 	} ?>
 
 
-	<?php foreach ($print_slip as $ps) : ?>
+	<?php
+	foreach ($p_alpha as $a) {
+		$alpha = $a->jml_potongan;
+	}
+	foreach ($p_sakit as $s) {
+		$sakit = $s->jml_potongan;
+	}
+	foreach ($print_slip as $ps) : ?>
 
-		<?php $potongan_gaji = $ps->alpha * $potongan; ?>
+		<?php
+		$potongan = ($ps->alpha * $alpha) + ($ps->sakit * $sakit);
+		$t_gaji = $ps->gaji_pokok + $ps->tj_transport + $ps->uang_makan - $potongan;
+		// $potongan_gaji = $ps->alpha * $potongan;
+		?>
 
 		<table style="width: 100%">
 			<tr>
@@ -80,15 +91,51 @@
 			</tr>
 
 			<tr>
-				<td>4</td>
-				<td>Potongan</td>
-				<td>Rp. <?php echo number_format($potongan_gaji, 0, ',', '.') ?></td>
+				<td rowspan="3">4</td>
+				<td rowspan="3">Potongan</td>
+				<td>Sakit (<?= $ps->sakit; ?>) : Rp. <?= number_format($sakit * $ps->sakit, 0, ',', '.'); ?></td>
 			</tr>
-
+			<tr>
+				<td>Alpha (<?= $ps->alpha; ?>) : Rp. <?= number_format($alpha * $ps->alpha, 0, ',', '.'); ?></td>
+			</tr>
+			<tr>
+				<td>Total Potongan : Rp. <?php echo number_format($potongan, 0, ',', '.') ?></td>
+			</tr>
 			<tr>
 				<th colspan="2" style="text-align: right;">Total Gaji : </th>
-				<th>Rp. <?php echo number_format($ps->gaji_pokok + $ps->tj_transport + $ps->uang_makan - $potongan_gaji, 0, ',', '.') ?></th>
+				<th>Rp. <?php echo number_format($t_gaji, 0, ',', '.') ?></th>
 			</tr>
+			<?php
+			$persen_zakat = 0;
+			foreach ($zakat as $z) {
+				$persen_zakat = $persen_zakat + $z->potongan;
+			}
+			foreach ($zakat[0] as $w) {
+				$zakat_first_id = $w;
+				break;
+			}
+			if ($persen_zakat > 0) { ?>
+				<?php
+				foreach ($zakat as $z) {
+				?>
+					<tr>
+						<?php if ($z->id == $zakat_first_id) { ?>
+							<td rowspan="<?= count($zakat) + 1; ?>">5</td>
+							<td rowspan="<?= count($zakat) + 1; ?>">Zakat</td>
+							<td><?= $z->nama_zakat; ?> : Rp. <?= number_format(($t_gaji / 100) * $z->potongan, 0, ',', '.'); ?> (<?= $z->potongan; ?>%)</td>
+						<?php } else { ?>
+							<td><?= $z->nama_zakat; ?> : Rp. <?= number_format(($t_gaji / 100) * $z->potongan, 0, ',', '.'); ?> (<?= $z->potongan; ?>%)</td>
+						<?php }; ?>
+					</tr>
+				<?php } ?>
+				<tr>
+					<td>Total Zakat : Rp. <?= number_format(($t_gaji / 100) * $persen_zakat, 0, ',', '.'); ?>(<?= $persen_zakat; ?>%)</td>
+				</tr>
+				<tr>
+					<th colspan="2" style="text-align: right;">Total Gaji Setelah Zakat : </th>
+					<th>Rp. <?= number_format($t_gaji - (($t_gaji / 100) * $persen_zakat), 0, ',', '.'); ?></th>
+				</tr>
+			<?php } ?>
 		</table>
 
 		<table width="100%">
@@ -102,7 +149,7 @@
 				</td>
 
 				<td width="200px">
-					<p>Tegal, <?php echo date("d M Y") ?> <br> Finance,</p>
+					<p>Kudus, <?php echo date("d M Y") ?> <br> Finance,</p>
 					<br>
 					<br>
 					<p>___________________</p>
