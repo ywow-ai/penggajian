@@ -9,6 +9,8 @@ Fitur Admin
 6. Laporan Gaji
 7. Laporan Absensi
 8. Cetak Slip Gaji
+9. Email Notifikasi
+10. Zakat
 
 Fitur Karyawan
 1. Cetak Slip Gaji
